@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Http;
 namespace febcustomerapp
 {
     // You may need to install the Microsoft.AspNetCore.Http.Abstractions package into your project
-    public class Middleware
+    public class CheckSecurity
     {
         private readonly RequestDelegate _next;
 
-        public Middleware(RequestDelegate next)
+        public CheckSecurity(RequestDelegate next)
         {
             _next = next;
         }
@@ -25,11 +25,11 @@ namespace febcustomerapp
     }
 
     // Extension method used to add the middleware to the HTTP request pipeline.
-    public static class MiddlewareExtensions
+    public static class CheckSecurityExtensions
     {
         public static IApplicationBuilder UseMiddlewareClassTemplate(this IApplicationBuilder builder)
         {
-            return builder.UseMiddleware<Middleware>();
+            return builder.UseMiddleware<CheckSecurity>();
         }
     }
 }
