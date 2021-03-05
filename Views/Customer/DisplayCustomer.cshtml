@@ -1,0 +1,31 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model List<febcustomerapp.Models.Customer>
+@{
+    Layout = null;
+}
+<form action="Customer/Search" method="get">
+    Name :- <input type="text" name="customerName" value="" />
+    <input type="submit" name="Search" value="" />
+</form>
+<table>
+    <tr>
+        <td>
+            Name
+        </td>
+        <td>Address</td>
+    </tr>
+    @if (Model != null)
+    {
+        @foreach (var cust in Model)
+
+        {
+            <tr>
+                <td>@cust.customerName</td>
+                <td>@cust.address</td>
+            </tr>
+        }
+    }
+
+</table>
